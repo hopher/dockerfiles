@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  nginx:  
+    image: app/nginx:1.15
+    container_name: app_nginx
+    build:
+      context: .
+      dockerfile: ./services/nginx/Dockerfile
+    external_links:  # links 为 services name, 官方已废弃 links 参数
+      - php:php-fpm      
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${HOME}/app:/app:rw
+      - ./services/nginx/etc/conf.d:/etc/nginx/conf.d
+      - ./services/nginx/etc/nginx.conf:/etc/nginx/nginx.conf:ro      
+    restart: always
+    command: nginx -g 'daemon off;'
+    networks:
+      - app
+
+networks:
+  app:
+    name: app # `docker network ls` 查询 && 根据实际填写
