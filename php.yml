@@ -1,14 +1,14 @@
 version: '3.7'
 services:
   php:
-    image: app/php:7.1-fpm
+    image: app/php:7.2-fpm
     container_name: app_php
     build:
       context: .
-      dockerfile: ./services/php/v7.1/Dockerfile      
+      dockerfile: ./services/php/v7.2/Dockerfile      
     volumes:
-      - ${HOME}/app:/app:rw  # 默认工作目录: /var/www/html
-      - ./services/php/v7.1/php.ini:/usr/local/etc/php/php.ini:rw
+      - ${APP_PATH}:/app:rw  # 默认工作目录: /var/www/html
+      - ./services/php/v7.2/php.ini:/usr/local/etc/php/php.ini:rw
     restart: always
     command: php-fpm
     networks:

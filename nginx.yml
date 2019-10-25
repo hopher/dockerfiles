@@ -12,7 +12,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ${HOME}/app:/app:rw
+      - ${APP_PATH}:/app:rw
       - ./services/nginx/etc/conf.d:/etc/nginx/conf.d
       - ./services/nginx/etc/nginx.conf:/etc/nginx/nginx.conf:ro      
     restart: always

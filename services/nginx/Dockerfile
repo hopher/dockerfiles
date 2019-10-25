@@ -1,4 +1,4 @@
-FROM nginx:1.15
+FROM nginx:1.17.5-alpine
 LABEL maintainer="hopher.hong <565983236@qq.com>"
 
 # 设置时区
