@@ -9,6 +9,8 @@ services:
     volumes:
       - ${APP_PATH}:/app:rw  # 默认工作目录: /var/www/html
       - ./services/php/v7.2/php.ini:/usr/local/etc/php/php.ini:rw
+      - ./services/php/v7.2/php-fpm.conf:/usr/local/etc/php-fpm.conf:rw
+      - ./services/php/v7.2/php-fpm.d:/usr/local/etc/php-fpm.d:rw
     restart: always
     command: php-fpm
     networks:
