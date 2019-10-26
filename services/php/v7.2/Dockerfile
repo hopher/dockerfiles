@@ -39,5 +39,7 @@ RUN apk add --no-cache --virtual .ext-deps libxml2 libzip freetype libpng libjpe
 #	/usr/sbin/groupmod -g 101 www-data && \
 	apk del .build-deps
 
+RUN mkdir /app
+
 # 设置工作目录
 WORKDIR /app    

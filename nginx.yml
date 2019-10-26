@@ -5,7 +5,7 @@ services:
     container_name: app_nginx
     build:
       context: .
-      dockerfile: ./services/nginx/Dockerfile
+      dockerfile: ${DOCKER_SERVICE}/nginx/Dockerfile
     external_links:  # links 为 services name, 官方已废弃 links 参数
       - php:php-fpm      
     ports:
@@ -13,8 +13,8 @@ services:
       - "443:443"
     volumes:
       - ${APP_PATH}:/app:rw
-      - ./services/nginx/etc/conf.d:/etc/nginx/conf.d
-      - ./services/nginx/etc/nginx.conf:/etc/nginx/nginx.conf:ro      
+      - ${DOCKER_SERVICE}/nginx/etc/conf.d:/etc/nginx/conf.d
+      - ${DOCKER_SERVICE}/nginx/etc/nginx.conf:/etc/nginx/nginx.conf:ro      
     restart: always
     command: nginx -g 'daemon off;'
     networks:

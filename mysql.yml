@@ -6,12 +6,13 @@ services:
     container_name: app_mysql
     build:
       context: .
-      dockerfile: ./services/mysql/Dockerfile    
+      dockerfile: ${DOCKER_SERVICE}/mysql/v5.7/Dockerfile    
     ports:
       - "3306:3306"
     volumes:
-      - ./services/mysql/data:/var/lib/mysql:rw
-      - ./services/mysql/log:/var/log/mysql:ro
+      - ${DOCKER_SERVICE}/mysql/data:/var/lib/mysql:rw
+      - ${DOCKER_SERVICE}/mysql/logs:/var/log/mysql:rw
+      - ${DOCKER_SERVICE}/mysql/v5.7/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
     environment:
       MYSQL_ROOT_PASSWORD: 123456
     restart: always
