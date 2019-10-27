@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  node:
+    image: app/node:8-alpine
+    container_name: app_node
+    build:
+      context: .
+      dockerfile: ${DOCKER_SERVICE}/node/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${APP_PATH}:/app:rw  # 默认工作目录: /var/www/html
+      - npm-cache:/root/.npm
+    stdin_open: true
+    tty: true
+    restart: always
+    networks:
+      - app
+
+volumes:
+  npm-cache:
+    external: false # 外部 `docker volume ls` 查看
+    name: app_npm_cache
+networks:
+  app:
+    name: app # `docker network ls` 查询 && 根据实际填写
