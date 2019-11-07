@@ -32,4 +32,4 @@ symbolic-links=0
 # 查询日志 - 打印
 log-output = FILE
 general-log = 1
-general_log_file = /logs/mysqlquery.log
+general_log_file = /var/log/mysql/query.log
