@@ -1,8 +1,8 @@
 version: '3.7'
 services:
-  nginx:  
+  nginx:
     image: app/nginx:1.15
-    container_name: app_nginx
+    container_name: app_nginx_php
     build:
       context: .
       dockerfile: ${DOCKER_SERVICE}/nginx/Dockerfile
@@ -16,7 +16,9 @@ services:
     restart: always
     command: nginx -g 'daemon off;'
     networks:
-      - app      
+      - app
+    external_links:  # links 为 services name, 官方已废弃 links 参数
+      - php:php-fpm         
 
 networks:
   app:
