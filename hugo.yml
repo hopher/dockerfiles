@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  hugo:
+    image: app/hugo:alpine
+    container_name: app_hugo
+    build:
+      context: .
+      dockerfile: ${DOCKER_SERVICE}/hugo/Dockerfile
+    ports:
+      - "1313:1313"
+    volumes:
+      - ${APP_PATH}:/app:rw
+    stdin_open: true
+    tty: true
+    restart: always
+    networks:
+      - app    
+
+networks:
+  app:
+    name: app # `docker network ls` 查询 && 根据实际填写
