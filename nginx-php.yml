@@ -2,7 +2,7 @@ version: '3.7'
 services:
   nginx:
     image: app/nginx:1.15
-    container_name: app_nginx_php
+    container_name: app_nginx
     build:
       context: .
       dockerfile: ${DOCKER_SERVICE}/nginx/Dockerfile
