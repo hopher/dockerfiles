@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  redis:
+    image: app/redis:5-alpine
+    container_name: app_redis
+    build:
+      context: .
+      dockerfile: ${DOCKER_SERVICE}/redis/Dockerfile
+    ports:
+      - "6379:6379"
+    networks:
+      - app
+
+networks:
+  app:
+    name: app # `docker network ls` 查询 && 根据实际填写
