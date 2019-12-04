@@ -14,7 +14,7 @@ services:
       - ${DOCKER_SERVICE}/mysql/logs:/var/log/mysql:rw
       - ${DOCKER_SERVICE}/mysql/v5.7/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf:ro
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: Xq54tGxtZt4MJha
     restart: always
     command: "--character-set-server=utf8"
     networks:
