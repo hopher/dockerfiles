@@ -1,5 +1,9 @@
 ## PHP 服务
 
+Version based on official 7.4 alpine, runned by www-data
+
+参考: https://hub.docker.com/r/nodeartio/php/dockerfile/
+
 ## 安装 redis 扩展
 
 ```
