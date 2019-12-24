@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   node:
-    image: app/node:8-alpine
+    image: app/node:8-alpine3.10
     container_name: app_node
     build:
       context: .
