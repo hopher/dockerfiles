@@ -1,31 +1,8 @@
 # Dockerfiles
 
-用 Docker 容器服务的方式搭建 nginx/php/mysql/redis/go/node/postgres/phpmyadmin 环境，易于维护、升级。
+用 Docker 容器服务的方式搭建 nginx/php/mysql/redis/go/node 环境，易于维护、升级。
 
-- [English](./README.md)
-
-**镜像版本**
-
-公用存储: (网段名: app)
-- MySQL 5.7
-- Redis 3.2
-- Postgres 10
-
-> 很多应用会直接使用类似阿里云 RDS 服务, 线上环境不会再用docker 搭建 mysql, redis 这些服务
-
-其它：
-- PHP 7.1/7.2/7.3
-    - 扩展: swoole v4.3.0
-    - 扩展: Composer version 1.8.4
-- Golang 1.12
-- Nginx 1.15
-- Node 11.12
-- tomcat 8-jre8
-
-
-## 构建自定义项目组合, 配置说明
-
-公用存储(MySQL, Redis, Postgres), 使用了网段: app
+## 配置
 
 你可以通过复制 && 修改 .env.example 来自定义构建项目组合
 
@@ -35,48 +12,11 @@ cp .env.example .env
 vi .env
 ```
 
-或自己DIY, 修改 `docker-compose-*.yml` 文件中 networks 属性, 配置相关通讯网段
-
-
-示例: 
-
-```
-services:
-  node:
-    ... // 省略
-    networks:
-      - app
-      - common
-networks:
-  common: # 公用网络
-    external: true
-    name: common # `docker network ls` 查询 && 根据实际填写
-  app:
-    name: nodejs
-```
-
-
 ## 使用
 
-### 1. 下载
-
-下载 zip 压缩包 && 解压
-
-```
-wget -c https://github.com/hopher/dockerfiles/archive/master.zip -O dockerfiles.zip
-unzip dockerfiles.zip
-mkdir -p ${HOME}/app
-```
-
-其中, `~/app` 为 volumes 名称，可根据自己需要更改 `docker-compose.yml` 中 volumes 对应值
-
-### 2. docker-compose 构建项目
-
-
-进入 docker-compose.yml 所在目录：
+进入项目所在目录：
 执行命令：
 ```
-cp .env.example .env
 docker-compose up
 ```
 
@@ -148,8 +88,7 @@ echo "<?php phpinfo();" > index.php
 ```
 dockerfiles
     |-- services                    # docker 相关服务
-    |-- docker-compose.yml          # 通用配置文件
-    |-- docker-compose-tomcat.yml   # tomcat 配置文件
+    |-- **.yml                      # 通用配置文件
     |-- mirrors                     # source.list 镜像源地址
 ~/app                               # 工作源码存放目录
 ```
