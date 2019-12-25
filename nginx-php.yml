@@ -5,7 +5,7 @@ services:
     container_name: app_nginx
     build:
       context: .
-      dockerfile: ${DOCKER_SERVICE}/nginx/Dockerfile
+      dockerfile: ${DOCKER_SERVICE}/nginx/${dockerfile}
     ports:
       - "80:80"
       - "443:443"
