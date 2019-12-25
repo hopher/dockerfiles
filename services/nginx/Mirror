@@ -1,0 +1,2 @@
+FROM registry.cn-shenzhen.aliyuncs.com/hpan/nginx:1.17.5-alpine
+LABEL maintainer="hopher.hong <hopher.hong@qq.com>"
