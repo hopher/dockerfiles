@@ -15,7 +15,7 @@ services:
     container_name: app_micro_api
     build:
       context: .
-      dockerfile: ./services/micro/Dockerfile
+      dockerfile: ./services/micro/${dockerfile}
     ports:
       - "8080:8080" # API网关模式 - 默认的端口是8080
     entrypoint: 
