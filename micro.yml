@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+
+  micro-api:
+    environment:
+      MICRO_REGISTRY: etcd
+      MICRO_REGISTRY_ADDRESS: etcd:2379
+      MICRO_REGISTER_TTL: 10      # 以秒为单位注册TTL（默认值：60）
+      MICRO_REGISTER_INTERVAL: 5  # 注册间隔（以秒为单位）（默认值：30）
+      #MICRO_API_ENABLE_RPC: 1
+      MICRO_API_HANDLER: http      # 默认方式 rpc
+    command: api
+    image: app/micro-api:latest
+    container_name: app_micro_api
+    build:
+      context: .
+      dockerfile: ./services/micro/Dockerfile
+    ports:
+      - "8080:8080" # API网关模式 - 默认的端口是8080
+    entrypoint: 
+      - "/micro"
+    restart: always
+    networks:
+      - app
+
+  micro-web:
+    environment:
+      MICRO_REGISTER_TTL: 10
+      MICRO_REGISTER_INTERVAL: 5   
+    command: --registry=etcd --registry_address=etcd:2379 web
+    image: app/micro-web:latest
+    container_name: app_micro_web
+    build:
+      context: .
+      dockerfile: ./services/micro/Dockerfile
+    ports:
+      - "8082:8082" # Web管理控制台 - 默认的端口是8082
+    entrypoint: 
+      - "/micro"
+    restart: always
+    networks:
+      - app
+
+networks:
+  app:
+    name: app # `docker network ls` 查询 && 根据实际填写

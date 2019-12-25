@@ -1,0 +1,5 @@
+FROM registry.cn-shenzhen.aliyuncs.com/hpan/golang:alpine
+LABEL maintainer="hopher.hong <hopher.hong@qq.com>"
+
+RUN mkdir /app
+WORKDIR /app

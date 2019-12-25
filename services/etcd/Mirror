@@ -1,0 +1,2 @@
+FROM registry.cn-shenzhen.aliyuncs.com/hpan/etcd:v3.4.3
+LABEL maintainer="hopher.hong <hopher.hong@qq.com>"

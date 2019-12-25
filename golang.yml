@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+
+  golang:
+    environment:
+      GO111MODULE: "on"                     # 启用 go module 模式
+      GOPROXY: https://goproxy.cn,direct    # 设置国内代理
+      CGO_ENABLED: 0                        # 禁用 gcc 
+      GOOS: linux
+    image: app/golang:alpine
+    container_name: micro_golang
+    build:
+      context: .
+      dockerfile: ./services/golang/Dockerfile
+    volumes:
+      - ${HOME}/app:/app:rw
+      - gomod:/go/pkg/mod
+    stdin_open: true
+    tty: true
+    restart: always 
+    networks:
+      - app
+
+volumes:
+  gomod:
+    external: false # 外部 `docker volume ls` 查看
+    name: app_gomod
+
+networks:
+  app:
+    name: app # `docker network ls` 查询 && 根据实际填写

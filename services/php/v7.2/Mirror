@@ -1,0 +1,2 @@
+FROM registry.cn-shenzhen.aliyuncs.com/hpan/php:7.2-fpm-alpine3.10
+LABEL maintainer="hopher.hong <hopher.hong@qq.com>"

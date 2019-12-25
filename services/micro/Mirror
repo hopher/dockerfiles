@@ -1,0 +1,2 @@
+FROM registry.cn-shenzhen.aliyuncs.com/hpan/micro:latest
+LABEL maintainer="hopher.hong <hopher.hong@qq.com>"
