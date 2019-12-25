@@ -1,2 +1,2 @@
-FROM redis:5-alpine
+FROM registry.cn-shenzhen.aliyuncs.com/hpan/redis:5-alpine
 LABEL maintainer="hopher.hong <hopher.hong@qq.com>"
