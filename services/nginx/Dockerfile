@@ -1,5 +1,5 @@
 FROM nginx:1.17.5-alpine
-LABEL maintainer="hopher.hong <565983236@qq.com>"
+LABEL maintainer="hopher.hong <hopher.hong@qq.com>"
 
 # 设置时区
 ENV TIMEZONE=Asia/Shanghai

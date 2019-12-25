@@ -33,7 +33,7 @@ services:
     container_name: app_micro_web
     build:
       context: .
-      dockerfile: ./services/micro/Dockerfile
+      dockerfile: ./services/micro/${dockerfile}
     ports:
       - "8082:8082" # Web管理控制台 - 默认的端口是8082
     entrypoint: 

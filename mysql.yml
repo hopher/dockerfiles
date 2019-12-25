@@ -6,7 +6,7 @@ services:
     container_name: app_mysql
     build:
       context: .
-      dockerfile: ${DOCKER_SERVICE}/mysql/v5.7/Dockerfile    
+      dockerfile: ${DOCKER_SERVICE}/mysql/v5.7/${dockerfile}
     ports:
       - "3306:3306"
     volumes:

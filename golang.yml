@@ -12,7 +12,7 @@ services:
     container_name: micro_golang
     build:
       context: .
-      dockerfile: ./services/golang/Dockerfile
+      dockerfile: ./services/golang/${dockerfile}
     volumes:
       - ${HOME}/app:/app:rw
       - gomod:/go/pkg/mod

@@ -1,0 +1,2 @@
+FROM registry.cn-shenzhen.aliyuncs.com/hpan/mysql:8.0
+LABEL maintainer="hopher.hong <hopher.hong@qq.com>"

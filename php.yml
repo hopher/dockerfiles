@@ -5,7 +5,7 @@ services:
     container_name: app_php
     build:
       context: .
-      dockerfile: ${DOCKER_SERVICE}/php/v7.2/Dockerfile      
+      dockerfile: ${DOCKER_SERVICE}/php/v7.2/${dockerfile}
     volumes:
       - ${APP_PATH}:/app:rw  # 默认工作目录: /var/www/html
     restart: always

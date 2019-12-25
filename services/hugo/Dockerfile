@@ -1,5 +1,5 @@
 FROM alpine:latest
-LABEL maintainer="hopher.hong <565983236@qq.com>"
+LABEL maintainer="hopher.hong <hopher.hong@qq.com>"
 
 RUN mkdir /app
 

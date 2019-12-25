@@ -1,5 +1,5 @@
 FROM mysql:8.0
-LABEL maintainer="hopher.hong <565983236@qq.com>"
+LABEL maintainer="hopher.hong <hopher.hong@qq.com>"
 
 # 设置服务根目录
 ENV SERVICE_PATH ./services/mysql/v8.0

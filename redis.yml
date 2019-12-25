@@ -5,7 +5,7 @@ services:
     container_name: app_redis
     build:
       context: .
-      dockerfile: ${DOCKER_SERVICE}/redis/Dockerfile
+      dockerfile: ${DOCKER_SERVICE}/redis/${dockerfile}
     ports:
       - "6379:6379"
     networks:
