@@ -2,11 +2,11 @@ FROM composer:latest
 FROM php:7.2-fpm-alpine3.10
 LABEL maintainer="hopher.hong <hopher.hong@qq.com>"
 
-# 设置时区
+# setting timezone
 ENV TIMEZONE Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
 
-# 设置安装源镜像
+# setting alpine source mirror
 RUN printf "\
 http://mirrors.aliyun.com/alpine/v3.10/main\n\
 http://mirrors.aliyun.com/alpine/v3.10/community\n\
@@ -92,5 +92,5 @@ COPY --from=0 /usr/bin/composer /usr/bin/composer
 
 RUN mkdir /app
 
-# 设置工作目录
+# setting workdir
 WORKDIR /app    

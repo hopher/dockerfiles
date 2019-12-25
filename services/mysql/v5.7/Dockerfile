@@ -1,9 +1,9 @@
 FROM mysql:5.7
 LABEL maintainer="hopher.hong <hopher.hong@qq.com>"
 
-# 设置服务根目录
+# setting current service root path
 ENV SERVICE_PATH ./services/mysql/v5.7
 
-# 设置时区
+# setting timezone
 ENV TIMEZONE=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
