@@ -8,6 +8,7 @@ services:
       dockerfile: ${DOCKER_SERVICE}/node/Dockerfile
     ports:
       - "3000:3000"
+      - "8000:8000"
     volumes:
       - ${APP_PATH}:/app:rw  # 默认工作目录: /var/www/html
       - npm-cache:/root/.npm
