@@ -14,7 +14,7 @@ services:
       context: .
       dockerfile: ./services/golang/${dockerfile}
     volumes:
-      - ${HOME}/app:/app:rw
+      - ${APP_PATH}:/app:rw
       - gomod:/go/pkg/mod
     stdin_open: true
     tty: true
