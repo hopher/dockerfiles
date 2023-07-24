@@ -1,5 +1,12 @@
 #!/bin/bash
 
+
+# 功能描述：
+# 安装 docker
+#
+# https://docs.docker.com/engine/install/centos/
+#
+
 # 安装 docker CE
 yum remove docker \
                   docker-client \
