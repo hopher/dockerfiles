@@ -157,7 +157,7 @@ volumes:
 
 ## 贡献名单
 
-... 期待你的留名 ...
+.... 期待你的留名 ....
 
 ##  参考资料
 - [[官方文档] Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
